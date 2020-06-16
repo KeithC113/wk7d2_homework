@@ -7,14 +7,15 @@ document.addEventListener('DOMContentLoaded',()=>{
     data: {
       currencies: [],
       selectedCurrency: null,
-      numEurosAmount: 0
+      numEurosAmount: null
     },
     mounted(){
       this.getCurrencies()
     },
     computed:{
       convertedCurrency: function(){
-        return this.numEurosAmount * this.currencies.rates;
+        const result = this.numEurosAmount * this.selectedCurrency;
+        return result.toFixed(2)
       }
     },
     methods:{
