@@ -10,15 +10,18 @@
     <h1> Currency Converter </h1>
     <div id="app">
 <!-- input required for the number of euros to convert-->
-      <!-- <div id="NumEurosInput">
-        <h3> Type how many Euros to convert: </h3>
-        <input type="number" v-model.number="NumEurosAmount">
-      </div> -->
+      <div id="NumEurosInput">
+        <h3> Type how many Euros to convert:
+        <input type="number" v-model.number="numEurosAmount"></h3>
+      </div>
       <label for="currency_choice"> Select a currency:</label>
         <select v-model="selectedCurrency"id="currency_select">
           <option disabled value=""> Select a currency</option>
-          <option v-for="(currency, key) in currencies" :value="currency">{{key}}</option>
+          <option v-for="(currency, key) in currencies" :value="currency">{{key}} : {{currency}}</option>
         </select>
+        <p v-if="selectedCurrency">Selected rate is {{selectedCurrency}}</p>
+        <h2>New currency value is: £{{convertedCurrency}} </h2>
+
       <!-- output of the number of euros * converted currency rate -->
     </div>
   </body>
